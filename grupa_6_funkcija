@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+/*
+Се внесува еден цел број n од стандарден влез.
+После тоа, се внесуваат n парови од трицифрени броеви.
+За секој пар се проверуваат следните услови:
+
+- Доколку првата цифра од првиот број и последната цифра од вториот број се еднакви се печати „fiz“ на излез
+- Доколку последната цифра од првиот број и првата цифра од вториот број се еднакви, се печати fuz“ на излез
+- Доколку и двата услови се исполнети се печати fiz-fuz“ на излез
+- Доколку ниту еден услов не е исполнет се печати „no fiz no fuz“
+
+Пример:
+
+4
+
+123 981
+fiz
+
+456 642
+fuz
+
+184 471
+fiz-fuz
+
+982 341
+no fiz no fuz
+
+
+
+*/
+
+void fizFuz(int prvBroj, int vtorBroj){
+    int prvBrojPrvaCifra, prvBrojPoslednaCifra, vtorBrojPrvaCifra, vtorBrojPoslednaCifra;
+    prvBrojPrvaCifra = prvBroj/100;
+    prvBrojPoslednaCifra = prvBroj%10;
+
+    vtorBrojPrvaCifra = vtorBroj/100;
+    vtorBrojPoslednaCifra = vtorBroj%10;
+
+    if(prvBrojPrvaCifra==vtorBrojPoslednaCifra && prvBrojPoslednaCifra==vtorBrojPrvaCifra){
+        cout<<"fiz-fuz"<<endl;
+    } else if(prvBrojPrvaCifra==vtorBrojPoslednaCifra){
+        cout<<"fiz"<<endl;
+    } else if(prvBrojPoslednaCifra==vtorBrojPrvaCifra){
+        cout<<"fuz"<<endl;
+    } else {
+        cout<<"no fiz no fuz"<<endl;
+    }
+
+
+}
+
+int main()
+{
+    int n, prvBroj, vtorBroj;
+
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>prvBroj;
+        cin>>vtorBroj;
+
+        fizFuz(prvBroj, vtorBroj);
+    }
+    return 0;
+}
