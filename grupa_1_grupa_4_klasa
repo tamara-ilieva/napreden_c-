@@ -1,0 +1,108 @@
+#include <iostream>
+using namespace std;
+
+/*
+Да се креира класа Vehicle која ќе содржи информации за eдно возило.
+Оваа класа треба да ги содржи следниве информации: модел, бренд, година, максимална брзина и моментална брзина.
+За класата да се обезбедат соодветните конструктори, гетери и сетери.
+
+Дополнително да се обезбеди метод pecati() којшто ќе ги печати сите информации за возилото.
+
+Да се креира уште една изведена класа Bus којашто ќе чува информација за капацитет на патници.
+Да се обезбедат соодветни гетери и сетери за овој атрибут.
+Да се обезбеди метод isCapacityValid којшто ќе прима број на патници како аргумент
+и ќе испечати дали може да се сместат патниците во овој автобус.
+
+
+
+*/
+
+class Vehicle{
+    protected:
+        string model;
+        string brand;
+        int buildYear;
+        int maxSpeed;
+        int currentSpeed;
+    public:
+        Vehicle(){}
+        Vehicle(string modelV, string brandV, int buildYearV, int maxSpeedV, int currentSpeedV){
+            model = modelV;
+            brand = brandV;
+            buildYear = buildYearV;
+            maxSpeed = maxSpeedV;
+            currentSpeed = currentSpeedV;
+        }
+
+        string getModel(){
+            return model;
+        }
+
+        string getBrand(){
+            return brand;
+        }
+
+        int getBuildYear(){
+            return buildYear;
+        }
+
+        int getMaxSpeed(){
+            return maxSpeed;
+        }
+
+        int getCurrentSpeed(){
+            return currentSpeed;
+        }
+
+        void setModel(string newModel){
+            model = newModel;
+        }
+
+        void setBrand(string newBrand){
+            brand = newBrand;
+        }
+
+        void setBuildYear(int newBuildYear){
+            buildYear = newBuildYear;
+        }
+
+        void setMaxSpeed(int newMaxSpeed){
+            maxSpeed = newMaxSpeed;
+        }
+
+        void setCurrentSpeed(int newCurrentSpeed){
+            currentSpeed = newCurrentSpeed;
+        }
+
+        void pecati(){
+            cout<<"Model: "<<model<<" Brand: "<<brand<<" Build year: "<<buildYear<<" Max speed: "<<maxSpeed<<" Current Speed: "<<currentSpeed<<endl;
+        }
+
+};
+
+class Bus:public Vehicle{
+    protected:
+        int capacity;
+    public:
+        Bus(string modelV, string brandV, int buildYearV, int maxSpeedV, int currentSpeedV, int capacityV){
+            model = modelV;
+            brand = brandV;
+            buildYear = buildYearV;
+            maxSpeed = maxSpeedV;
+            currentSpeed = currentSpeedV;
+            capacity = capacityV;
+        }
+
+    bool isCapacityValid(int passengers){
+        if (passengers<=capacity){
+            return true;
+        }
+        return false;
+    }
+};
+
+int main()
+{
+
+    return 0;
+}
