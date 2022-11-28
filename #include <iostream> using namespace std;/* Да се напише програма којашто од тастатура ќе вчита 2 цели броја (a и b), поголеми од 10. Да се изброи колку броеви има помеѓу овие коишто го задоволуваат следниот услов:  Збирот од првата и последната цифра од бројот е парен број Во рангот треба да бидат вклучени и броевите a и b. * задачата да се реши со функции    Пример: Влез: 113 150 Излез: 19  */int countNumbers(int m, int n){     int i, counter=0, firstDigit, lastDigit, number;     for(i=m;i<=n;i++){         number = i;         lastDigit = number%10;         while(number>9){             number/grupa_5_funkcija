@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+/*
+Да се напише програма којашто од тастатура ќе вчита 2 цели броја (a и b), поголеми од 10.
+Да се изброи колку броеви има помеѓу овие коишто го задоволуваат следниот услов:
+
+Збирот од првата и последната цифра од бројот е парен број
+Во рангот треба да бидат вклучени и броевите a и b.
+* задачата да се реши со функции
+
+
+
+Пример:
+Влез:
+113
+150
+Излез: 19
+
+*/
+
+int countNumbers(int m, int n){
+    int i, counter=0, firstDigit, lastDigit, number;
+    for(i=m;i<=n;i++){
+        number = i;
+        lastDigit = number%10;
+        while(number>9){
+            number/=10;
+        }
+        firstDigit = number;
+        if((lastDigit + firstDigit) % 2 == 0){
+            counter++;
+        }
+    }
+    return counter;
+}
+
+int main()
+{
+
+int a, b, counter;
+cin>>a;
+cin>>b;
+counter = countNumbers(a, b);
+cout<<counter;
+
+return 0;
+}
