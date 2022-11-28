@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+/*
+Да се напише програма во која од тастарура прво се внесува бројот на играчи во една игра..
+За секој играч потоа се внесуваат податоци за ниво (цел број), број на победи и број на порази.
+
+Резултатот на играчот се пресметува на следниот начин
+
+• ако се работи за прво ниво, секоја победа носи 13 поени, а секој пораз носи -2 поен
+• ако се работи за второ ниво, секоја победа носи 10 поени, а секој пораз носи -3 поени
+
+За секој играч треба да се испечати Dobar igrac ако неговиот број на поени е позитивен или Los igrac во сите други случаи.
+Да се испечати и бројот на поени на играчот.
+
+Задачата да се реши со функции.
+
+Пример:
+
+4
+1 3 7 Dobar igrac 25 poeni
+1 5 5 Dobar igrac 55 poeni
+2 1 8 Los igrac -14 poeni
+2 6 4 Dobar igrac 48 poeni
+
+*/
+
+void kakovIgrach(int nivo, int pobedi, int porazi){
+    int vkupnoPoeni=0;
+    if(nivo==1){
+        vkupnoPoeni = pobedi*13 + porazi*(-2);
+    }else if(nivo==2){
+        vkupnoPoeni = pobedi*10 + porazi*(-3);
+    }
+
+    if (vkupnoPoeni>=0){
+        cout<<"Dobar igrach "<<vkupnoPoeni<<" poeni."<<endl;
+    }else{
+        cout<<"Losh igrach "<<vkupnoPoeni<<" poeni."<<endl;
+    }
+
+}
+
+int main()
+{
+    int n, nivo, pobedi, porazi;
+
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>nivo;
+        cin>>pobedi;
+        cin>>porazi;
+        kakovIgrach(nivo, pobedi, porazi);
+    }
+    return 0;
+}
