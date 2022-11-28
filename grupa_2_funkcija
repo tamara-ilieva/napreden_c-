@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+/*
+Да се напише програма којашто од тастатура ќе вчита 2 цели броја (m и n),поголеми од 10.
+Да се изброи колку броеви има помеѓу овие коишто го задоволуваат следниот услов:
+- првата цифра од бројот е еднаква со последната цифра од бројот.
+
+Во рангот треба да бидат вклучени и броевите m и n.
+* задачата да се реши со функции
+
+Пример:
+Влез:
+12
+138
+Излез: 12
+
+*/
+
+int countNumbers(int m, int n){
+    int i, counter=0, firstDigit, lastDigit, number;
+    for(i=m;i<=n;i++){
+        number = i;
+        lastDigit = number%10;
+        while(number>9){
+            number/=10;
+        }
+        firstDigit = number;
+        if(lastDigit == firstDigit){
+            counter++;
+        }
+    }
+    return counter;
+}
+
+int main()
+{
+    
+int m, n, counter;
+cin>>m;
+cin>>n;
+counter = countNumbers(m, n);
+cout<<counter;
+
+return 0;
+}
