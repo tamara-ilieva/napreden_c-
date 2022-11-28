@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+/*
+Се внесува еден цел број n од стандарден влез.
+После тоа, се внесуваат n парови од трицифрени броеви.
+За секој пар се проверуваат следните услови:
+- Доколку првата цифра од првиот број и последната цифра од вториот број се еднакви се печати „zig“ на излез
+- Доколку последната цифра од првиот број и првата цифра од вториот број се еднакви, се печати „zag“ на излез
+- Доколку и двата услови се исполнети се печати „zig-zag“ на излез
+- Доколку ниту еден услов не е исполнет се печати „no zig no zag“
+
+Пример:
+4
+
+123 981
+zig
+
+456 642
+zag
+
+184 471
+zig-zag
+
+982 341
+no zig no zag
+
+
+*/
+
+void zigZag(int prvBroj, int vtorBroj){
+    int prvBrojPrvaCifra, prvBrojPoslednaCifra, vtorBrojPrvaCifra, vtorBrojPoslednaCifra;
+    prvBrojPrvaCifra = prvBroj/100;
+    prvBrojPoslednaCifra = prvBroj%10;
+
+    vtorBrojPrvaCifra = vtorBroj/100;
+    vtorBrojPoslednaCifra = vtorBroj%10;
+
+    if(prvBrojPrvaCifra==vtorBrojPoslednaCifra && prvBrojPoslednaCifra==vtorBrojPrvaCifra){
+        cout<<"zig-zag"<<endl;
+    } else if(prvBrojPrvaCifra==vtorBrojPoslednaCifra){
+        cout<<"zig"<<endl;
+    } else if(prvBrojPoslednaCifra==vtorBrojPrvaCifra){
+        cout<<"zag"<<endl;
+    } else {
+        cout<<"no zig no zag"<<endl;
+    }
+
+
+}
+
+int main()
+{
+    int n, prvBroj, vtorBroj;
+
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>prvBroj;
+        cin>>vtorBroj;
+
+        zigZag(prvBroj, vtorBroj);
+    }
+    return 0;
+}
